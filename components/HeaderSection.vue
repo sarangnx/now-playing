@@ -5,10 +5,20 @@
             <span>on Your Github README.md</span>
         </div>
         <div class="cta">
-            <button>CONNECT SPOTIFY</button>
+            <button @click="login">CONNECT SPOTIFY</button>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    methods: {
+        login() {
+            window.location = '/api/auth';
+        }
+    }
+};
+</script>
 
 <style lang="scss">
 .header {
