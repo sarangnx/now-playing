@@ -20,6 +20,7 @@
     "devDependencies": {
         "env-cmd": "^10.1.0",
         "nodemon": "^1.18.9",
+        "nuxt-svg-loader": "^1.2.0",
         "sass": "^1.29.0",
         "sass-loader": "^10.1.0"
     }
