@@ -7,14 +7,17 @@
     "scripts": {
         "dev": "nuxt",
         "build": "nuxt generate",
-        "start": "nuxt start"
+        "start": "nuxt start",
+        "create-table": "env-cmd node ./scripts/create-table.js"
     },
     "dependencies": {
         "aws-sdk": "^2.789.0",
+        "axios": "^0.21.0",
         "nuxt": "^2.0.0",
         "uuid": "^8.3.1"
     },
     "devDependencies": {
+        "env-cmd": "^10.1.0",
         "nodemon": "^1.18.9"
     }
 }
