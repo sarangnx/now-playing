@@ -31,7 +31,7 @@ export default {
     /*
      ** Nuxt.js modules
      */
-    modules: [],
+    modules: ['nuxt-svg-loader'],
     /*
      ** Build configuration
      */
