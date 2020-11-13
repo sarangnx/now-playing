@@ -16,9 +16,9 @@
                 <h3>How to setup <img src="@/assets/wrench.png" class="emoji" /></h3>
                 <div class="code-block">
                     <p class="comment">&lt;!-- how to embed in your Github Readme --&gt;</p>
-                    <p>![now playing](https://localhost:3000/api/generate?uid={{ uid }})</p>
+                    <p>![now playing]({{ hostname }}/api/generate?uid={{ uid }})</p>
                     <p class="comment">&lt;!-- or --&gt;</p>
-                    <p>&lt;img src="https://localhost:3000/api/generate?uid={{ uid }}" /&gt;</p>
+                    <p>&lt;img src="{{ hostname }}/api/generate?uid={{ uid }}" /&gt;</p>
                 </div>
             </template>
         </readme>
@@ -39,6 +39,11 @@ export default {
         TopBar,
         Readme,
         Edit
+    },
+    computed: {
+        hostname() {
+            return window.location.origin;
+        }
     },
     mounted() {
         this.uid = this.$route.query && this.$route.query.uid ? this.$route.query.uid : null;
