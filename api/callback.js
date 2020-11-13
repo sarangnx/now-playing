@@ -11,14 +11,14 @@ export default async function(req, res) {
     }
 
     try {
-        const bearer = `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`;
+        const basic = `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`;
 
         // get access and refresh tokens
         const codes = await axios({
             method: 'post',
             url: 'https://accounts.spotify.com/api/token',
             headers: {
-                Authorization: `Basic ${Buffer.from(bearer).toString('base64')}`,
+                Authorization: `Basic ${Buffer.from(basic).toString('base64')}`,
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             data: querystring.stringify({
