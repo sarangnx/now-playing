@@ -72,7 +72,7 @@ export default async function(req, res) {
         // add or update item
         await db.putItem(data).promise();
 
-        res.json({ uid: data.Item.user_id.S });
+        res.redirect(`/code?uid=${data.Item.user_id.S}`);
     } catch (err) {
         return res.status(401).json({
             error: err.response && err.response.data ? err.response.data.error : 'invalid_code'
