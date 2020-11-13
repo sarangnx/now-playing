@@ -2,31 +2,17 @@
     <div class="readme">
         <div class="readme-top">
             <div class="readme-top-left">
-                <octocat />
-                <span>me/README.md</span>
+                <slot name="top-left"></slot>
             </div>
             <div class="readme-top-right">
-                <span>Send feedback</span>
-                <edit />
+                <slot name="top-right"></slot>
             </div>
         </div>
         <div class="readme-content">
-            <p style="display: inline-flex">Hey There,<img src="@/assets/wave.png" class="wave" /></p>
+            <slot name="content"></slot>
         </div>
     </div>
 </template>
-
-<script>
-import Octocat from '@/assets/octocat.svg';
-import Edit from '@/assets/edit.svg';
-
-export default {
-    components: {
-        Octocat,
-        Edit
-    }
-};
-</script>
 
 <style lang="scss">
 .readme {
@@ -63,10 +49,6 @@ export default {
     font-size: 14px;
     padding: 5px;
     margin-top: 1rem;
-}
-
-.wave {
-    height: 14px;
 }
 
 @media (max-width: 800px) {
