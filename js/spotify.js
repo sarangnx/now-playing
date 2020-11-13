@@ -48,3 +48,25 @@ export async function getNowPlaying(accessToken) {
 
     return response.data.item;
 }
+
+/**
+ * Get details of recently played song
+ *
+ * @param {String} accessToken - Access Token
+ */
+export async function getRecentlyPlayed(accessToken) {
+    const response = await axios({
+        method: 'get',
+        url: 'https://api.spotify.com/v1/me/player/recently-played',
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        },
+        params: { limit: 1 }
+    });
+
+    if (!response.data.items[0] || !response.data.items[0].track) {
+        return null;
+    }
+
+    return response.data.items[0].track;
+}
