@@ -1,11 +1,6 @@
 import axios from 'axios';
 import querystring from 'querystring';
-const DynamoDB = require('aws-sdk/clients/dynamodb');
-
-const db = new DynamoDB({
-    endpoint: process.env.NODE_ENV === 'development' ? process.env.AWS_ENDPOINT : undefined,
-    region: process.env.AWS_REGION
-});
+import db from '../js/dynamodb';
 
 export default async function(req, res) {
     const { code, state } = req.query;
