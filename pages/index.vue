@@ -12,7 +12,7 @@
                 <edit />
             </template>
             <template #content>
-                <p style="display: inline-flex">Hey There,<img src="@/assets/wave.png" class="wave" /></p>
+                <p style="display: inline-flex">Hey There,<img src="@/assets/wave.png" class="emoji" /></p>
             </template>
         </readme>
     </div>
@@ -35,9 +35,3 @@ export default {
     }
 };
 </script>
-
-<style lang="scss">
-.wave {
-    height: 14px;
-}
-</style>

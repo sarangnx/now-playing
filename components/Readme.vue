@@ -45,6 +45,26 @@
     }
 }
 
+.inline-code {
+    background: #f6f8fa;
+    padding: 5px;
+}
+
+.code-block {
+    background: #f6f8fa;
+    padding: 15px;
+    word-break: break-all;
+    font-size: 0.8rem;
+}
+
+.comment {
+    color: #6a737d;
+}
+
+.emoji {
+    height: 14px;
+}
+
 .readme-content {
     font-size: 14px;
     padding: 5px;
