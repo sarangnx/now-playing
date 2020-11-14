@@ -8,7 +8,7 @@
             <template #top-right>
                 <edit />
             </template>
-            <template #content>
+            <template v-if="uid" #content>
                 <p>Here You Go..</p>
                 <p style="line-height: 2;">
                     Your now-playing code is <span class="inline-code">{{ uid }}</span>
@@ -24,6 +24,10 @@
                 <div class="image">
                     <img :src="`/api/generate?uid=${uid}`" />
                 </div>
+            </template>
+            <template v-else #content>
+                <p>You need to authorize spotify first..</p>
+                <a href="/api/auth">Login with Spotify</a>
             </template>
         </readme>
     </div>
