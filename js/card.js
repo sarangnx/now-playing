@@ -1,10 +1,23 @@
+import axios from 'axios';
+
 /**
  * Render now playing svg card
  *
  * @param {Object} track - Song details
  */
-export function renderCard(track) {
+export async function renderCard(track) {
     const image = track.album.images.find(im => im.height === 300);
+
+    // download image and convert it to dataURI
+    const imageDownload = await axios({
+        method: 'get',
+        url: image.url,
+        responseType: 'arraybuffer'
+    });
+
+    const type = imageDownload.headers['content-type'];
+    const imageBase64 = Buffer.from(imageDownload.data).toString('base64');
+    const dataURI = `data:${type};base64,${imageBase64}`;
 
     // concat artist names
     const artists = track.artists.reduce((str, artist) => {
@@ -13,9 +26,10 @@ export function renderCard(track) {
     }, '');
 
     return `
-        <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" height="100" width="300" class="svg">
+        <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" height="150" class="svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect x="0" y="0" width="300" height="100" fill="white" stroke="#bfbfbf" rx="5"  ry="5"/>
             <g clip-path="url(#padding)">
-                <image href="${image.url}" height="80" width="80" x="10" y="10" preserveAspectRatio="xMidYMid slice"/>
+                <image xlink:href="${dataURI}" height="80" width="80" x="10" y="10" preserveAspectRatio="xMidYMid slice"/>
                 <text x="100" y="20" class="title">${track.name}</text>
                 <text x="100" y="30" class="artist">${artists}</text>
             </g>
@@ -28,8 +42,6 @@ export function renderCard(track) {
 
             <style>
                 .svg {
-                    border: 1px solid #bfbfbf;
-                    border-radius: 5px;
                     font-family: Ubuntu;
                 }
                 .title {
