@@ -2,7 +2,9 @@ import DynamoDB from 'aws-sdk/clients/dynamodb';
 
 const db = new DynamoDB({
     endpoint: process.env.NODE_ENV === 'development' ? process.env.AWS_ENDPOINT : undefined,
-    region: process.env.AWS_REGION
+    region: process.env.DYNAMODB_REGION,
+    accessKeyId: process.env.DYNAMODB_ACCESS_KEY_ID,
+    secretAccessKey: process.env.DYNAMODB_SECRET_ACCESS_KEY
 });
 
 export default db;
