@@ -20,6 +20,10 @@
                     <p class="comment">&lt;!-- or --&gt;</p>
                     <p>&lt;img src="{{ hostname }}/api/generate?uid={{ uid }}" /&gt;</p>
                 </div>
+                <h3>Result <img src="@/assets/tada.png" class="emoji" /></h3>
+                <div class="image">
+                    <img :src="`/api/generate?uid=${uid}`" />
+                </div>
             </template>
         </readme>
     </div>
@@ -50,3 +54,9 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.image {
+    margin-top: 20px;
+}
+</style>
