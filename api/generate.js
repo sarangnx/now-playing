@@ -14,7 +14,7 @@ export default async function(req, res) {
 
         // set svg as content-type header
         res.setHeader('Content-Type', 'image/svg+xml');
-        res.send(renderCard(track));
+        res.send(await renderCard(track));
     } catch (err) {
         res.end();
     }
