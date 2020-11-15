@@ -1,4 +1,5 @@
 import DynamoDB from 'aws-sdk/clients/dynamodb';
+import { decrypt } from './crypto';
 
 const db = new DynamoDB({
     endpoint: process.env.NODE_ENV === 'development' ? process.env.AWS_ENDPOINT : undefined,
@@ -25,6 +26,9 @@ export async function getRefreshToken(uid) {
         .promise();
 
     if (item.Item && item.Item.refresh_token) {
-        return item.Item.refresh_token.S;
+        // decrypt refresh_token
+        const refresh_token = decrypt(item.Item.refresh_token.S, item.Item.iv.S);
+
+        return refresh_token;
     }
 }
