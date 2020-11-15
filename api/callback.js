@@ -1,6 +1,7 @@
 import axios from 'axios';
 import querystring from 'querystring';
 import db from '../js/dynamodb';
+import { encrypt } from '../js/crypto';
 
 export default async function(req, res) {
     const { code, state } = req.query;
@@ -47,11 +48,15 @@ export default async function(req, res) {
             })
             .promise();
 
+        // encrypt refresh token
+        const { code: encrypted_token, iv } = encrypt(refresh_token);
+
         // prepare data to insert to database
         const data = {
             TableName: 'spotify_users',
             Item: {
-                refresh_token: { S: refresh_token },
+                refresh_token: { S: encrypted_token },
+                iv: { S: iv },
                 spotify_id: { S: profile.data.id }
             }
         };
@@ -69,8 +74,17 @@ export default async function(req, res) {
 
         res.redirect(`/code?uid=${data.Item.user_id.S}`);
     } catch (err) {
+        let message;
+        if (err.response && err.response.data && err.response.data.error) {
+            message = err.response && err.response.data.error;
+        } else if (err.message) {
+            message = err.message;
+        } else {
+            message = 'Something went Wrong';
+        }
+
         return res.status(401).json({
-            error: err.response && err.response.data ? err.response.data.error : 'invalid_code'
+            error: message
         });
     }
 }
