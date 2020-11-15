@@ -37,6 +37,7 @@
                 <a href="/api/auth">Login with Spotify</a>
             </template>
         </readme>
+        <footer-section />
     </div>
 </template>
 
@@ -45,6 +46,7 @@
 import TopBar from '@/components/TopBar';
 import Readme from '@/components/Readme';
 import Edit from '@/assets/edit.svg';
+import FooterSection from '@/components/FooterSection';
 
 export default {
     data: () => ({
@@ -52,6 +54,7 @@ export default {
     }),
     components: {
         TopBar,
+        FooterSection,
         Readme,
         Edit
     },

@@ -24,12 +24,14 @@
                 <p>Click <a href="/api/auth">here</a> to get started.</p>
             </template>
         </readme>
+        <footer-section />
     </div>
 </template>
 
 <script>
 import TopBar from '@/components/TopBar';
 import HeaderSection from '@/components/HeaderSection';
+import FooterSection from '@/components/FooterSection';
 import Readme from '@/components/Readme';
 import Octocat from '@/assets/octocat.svg';
 import Edit from '@/assets/edit.svg';
@@ -39,6 +41,7 @@ export default {
     components: {
         TopBar,
         HeaderSection,
+        FooterSection,
         Readme,
         Octocat,
         Edit,
