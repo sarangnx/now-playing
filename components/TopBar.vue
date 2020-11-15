@@ -1,6 +1,6 @@
 <template>
     <div class="top-bar">
-        <span class="logo">/NOW_PLAYING.md</span>
+        <a @click="$router.push('/')" class="logo">/NOW_PLAYING.md</a>
     </div>
 </template>
 
@@ -13,6 +13,7 @@
     .logo {
         grid-column: 2;
         font-size: 0.9rem;
+        cursor: pointer;
     }
 }
 </style>
