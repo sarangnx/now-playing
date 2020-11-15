@@ -18,10 +18,9 @@
 .readme {
     max-width: 800px;
     padding: 1rem;
-    margin: auto;
+    margin: 3rem auto;
     border: 1px solid #bfbfbf;
     border-radius: 10px;
-    margin-top: 3rem;
 }
 
 .readme-top {
