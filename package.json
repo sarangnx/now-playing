@@ -13,6 +13,7 @@
     "dependencies": {
         "aws-sdk": "^2.789.0",
         "axios": "^0.21.1",
+        "lodash.escape": "^4.0.1",
         "normalize.css": "^8.0.1",
         "nuxt": "^2.0.0",
         "uuid": "^8.3.1"
