@@ -1,4 +1,5 @@
 import escape from 'lodash.escape';
+import { logo } from './logo';
 
 export class CardTheme {
     constructor(options = {}) {
@@ -42,5 +43,15 @@ export class CardTheme {
     // artists names
     artists(names) {
         return `<text x="100" y="35" class="artist" fill="${this.theme.artists}">${escape(names)}</text>`;
+    }
+
+    // spotify logo
+    get spotify() {
+        return `
+        <defs>
+            ${logo}
+        </defs>
+        <use href="#spotify" height="20" width="20" x="270" y="70" preserveAspectRatio="xMidYMid slice"/>
+        `;
     }
 }
