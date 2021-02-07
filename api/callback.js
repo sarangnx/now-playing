@@ -3,7 +3,7 @@ import querystring from 'querystring';
 import db from '../js/dynamodb';
 import { encrypt } from '../js/crypto';
 
-export default async function(req, res) {
+export default async function (req, res) {
     const { code, state } = req.query;
     const { uid } = req.cookies;
 

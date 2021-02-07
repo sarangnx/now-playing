@@ -2,7 +2,7 @@ import { renderCard } from '../js/card';
 import { getRefreshToken } from '../js/dynamodb';
 import { getAccessToken, getNowPlaying, getRecentlyPlayed } from '../js/spotify';
 
-export default async function(req, res) {
+export default async function (req, res) {
     try {
         // get refresh token from db
         const refreshToken = await getRefreshToken(req.query.uid);
