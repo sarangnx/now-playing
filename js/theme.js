@@ -3,8 +3,8 @@ import { logo } from './logo';
 
 export class CardTheme {
     constructor(options = {}) {
-        this.resolution = this.resolutions[options.quality] ?? this.resolutions.med;
-        this.theme = this.themes[options.theme] ?? this.themes.light;
+        this.resolution = this.resolutions[options.quality] || this.resolutions.med;
+        this.theme = this.themes[options.theme] || this.themes.light;
     }
 
     // image resolutions available in spotify

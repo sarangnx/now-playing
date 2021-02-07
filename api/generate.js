@@ -13,7 +13,7 @@ export default async function (req, res) {
 
         const track = (await getNowPlaying(accessToken)) || (await getRecentlyPlayed(accessToken));
 
-        const theme = new CardTheme(req.query ?? {});
+        const theme = new CardTheme(req.query || {});
 
         // set svg as content-type header
         res.setHeader('Content-Type', 'image/svg+xml');
