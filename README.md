@@ -42,6 +42,9 @@ Install [vercel cli](https://vercel.com/download) for emulating lambda functions
 # install dependencies
 yarn
 
+# create table in dynamodb
+yarn create-table
+
 # start
 vercel dev
 ```
