@@ -1,0 +1,14 @@
+.wrapper {
+    min-height: 100vh;
+    position: relative;
+    .container {
+        padding-bottom: 3rem;
+    }
+}
+
+.image {
+    position: relative;
+    svg {
+        max-width: 100%;
+    }
+}
