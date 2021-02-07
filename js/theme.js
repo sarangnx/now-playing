@@ -19,7 +19,7 @@ export class CardTheme {
             background: '#06090f',
             border: '#30363d',
             title: '#ffffff',
-            artists: '#5b5b5b'
+            artists: '#dedada'
         },
         light: {
             background: '#ffffff',
@@ -37,12 +37,12 @@ export class CardTheme {
 
     // Track name
     track(name) {
-        return `<text x="100" y="20" class="title" fill="${this.theme.title}">${escape(name)}</text>`;
+        return `<text x="100" y="30" class="title" fill="${this.theme.title}">${escape(name)}</text>`;
     }
 
     // artists names
     artists(names) {
-        return `<text x="100" y="35" class="artist" fill="${this.theme.artists}">${escape(names)}</text>`;
+        return `<text x="100" y="45" class="artist" fill="${this.theme.artists}">${escape(names)}</text>`;
     }
 
     // spotify logo
