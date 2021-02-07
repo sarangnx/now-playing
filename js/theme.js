@@ -25,7 +25,7 @@ export class CardTheme {
             background: '#ffffff',
             border: '#bfbfbf',
             title: '#000000',
-            artists: '#5b5b5b;'
+            artists: '#5b5b5b'
         },
     }
 
