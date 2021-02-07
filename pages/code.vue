@@ -65,8 +65,24 @@ export default {
             return window.location.origin;
         }
     },
+    methods: {
+        saveToLocalstorage(uid) {
+            if (typeof localStorage === 'undefined') return;
+            localStorage.setItem('uid', uid);
+        },
+        getFromLocalstorage() {
+            if (typeof localStorage === 'undefined') return;
+            return localStorage.getItem('uid');
+        }
+    },
     mounted() {
         this.uid = this.$route.query && this.$route.query.uid ? this.$route.query.uid : null;
+
+        if (this.uid) {
+            this.saveToLocalstorage(this.uid);
+        } else {
+            this.uid = this.getFromLocalstorage();
+        }
     }
 };
 </script>
