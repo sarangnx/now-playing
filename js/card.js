@@ -1,13 +1,12 @@
 import axios from 'axios';
-import escape from 'lodash.escape';
 
 /**
  * Render now playing svg card
  *
  * @param {Object} track - Song details
  */
-export async function renderCard(track) {
-    const image = track.album.images.find(im => im.height === 300);
+export async function renderCard(track, theme) {
+    const image = track.album.images.find(im => im.height === theme.resolution);
 
     // download image and convert it to dataURI
     const imageDownload = await axios({
@@ -28,11 +27,11 @@ export async function renderCard(track) {
 
     return `
         <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" height="150" class="svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
-            <rect x="0" y="0" width="300" height="100" fill="white" stroke="#bfbfbf" rx="5"  ry="5"/>
+            ${theme.container}
             <g clip-path="url(#padding)">
                 <image xlink:href="${dataURI}" height="80" width="80" x="10" y="10" preserveAspectRatio="xMidYMid slice"/>
-                <text x="100" y="20" class="title">${escape(track.name)}</text>
-                <text x="100" y="35" class="artist">${escape(artists)}</text>
+                ${theme.track(track.name)}
+                ${theme.artists(artists)}
                 <svg width="1em" height="1em" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" x="100" y="75">
                     <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
                 </svg>
@@ -56,7 +55,6 @@ export async function renderCard(track) {
                 }
                 .artist {
                     font-size: 10px;
-                    fill: #5b5b5b;
                 }
                 .play {
                     font-size: 8px;
