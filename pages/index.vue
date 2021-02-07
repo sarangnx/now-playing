@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <div class="container">
-            <top-bar />
+            <top-bar :hasCode="hasCode" />
             <header-section />
             <readme>
                 <template #top-left>
@@ -49,9 +49,18 @@ export default {
         Edit,
         Generated
     },
+    data: () => ({
+        hasCode: false
+    }),
     methods: {
         openSpotify() {
             window.open('https://open.spotify.com/track/0ytvsZOerGzUWfHXVT2Sgy', '_blank');
+        }
+    },
+    mounted() {
+        if (typeof localStorage !== 'undefined') {
+            const uid = localStorage.getItem('uid');
+            this.hasCode = uid ? true : false;
         }
     }
 };
