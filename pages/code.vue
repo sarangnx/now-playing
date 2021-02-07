@@ -20,11 +20,14 @@
                         <p>![now playing]({{ hostname }}/api/generate?uid={{ uid }})</p>
                         <p class="comment">&lt;!-- or --&gt;</p>
                         <p>&lt;img src="{{ hostname }}/api/generate?uid={{ uid }}" /&gt;</p>
-                        <br />
-                        <p class="comment">&lt;!-- But the best way to ensure interactivity is --&gt;</p>
+                        <p class="comment">&lt;!-- or --&gt;</p>
                         <p>&lt;object data="{{ hostname }}/api/generate?uid={{ uid }}" &gt;</p>
                         <p>&nbsp;&nbsp;&lt;img src="{{ hostname }}/api/generate?uid={{ uid }}" /&gt;</p>
                         <p>&lt;/object&gt;</p>
+                    </div>
+                    <div class="code-block">
+                        <p class="comment">&lt;!-- For Dark theme, append &theme=dark --&gt;</p>
+                        <p>&lt;img src="{{ hostname }}/api/generate?uid={{ uid }}&theme=dark" /&gt;</p>
                     </div>
                     <h3>Result <img src="@/assets/tada.png" class="emoji" /></h3>
                     <div class="image">
