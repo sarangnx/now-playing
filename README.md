@@ -15,7 +15,7 @@ For dynamodb, install [localstack](https://github.com/localstack/localstack).
 SERVICES=dynamodb localstack start
 ```
 
-Required Evnironment variables 
+**Required Evnironment variables**
 
 ```bash
 NODE_ENV=development
@@ -34,12 +34,16 @@ REDIRECT_URI=http://localhost:3000/api/callback
 ENC_KEY=32-character-string
 ```
 
+**Starting up development server**
+
+Install [vercel cli](https://vercel.com/download) for emulating lambda functions.
+
 ```bash
 # install dependencies
 yarn
 
 # start
-yarn dev
+vercel dev
 ```
 
 
