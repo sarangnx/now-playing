@@ -5,3 +5,10 @@
         padding-bottom: 3rem;
     }
 }
+
+.image {
+    position: relative;
+    svg {
+        max-width: 100%;
+    }
+}
